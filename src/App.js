@@ -42,6 +42,7 @@ class App extends Component {
                 <h1>Hello i'm React.</h1>
                 <button style={style} onClick={this._switchNameHandler.bind(this, "Saitama Rank SSR OnePunchMan")}>Switch Name
                 </button>
+                {' '}
                 <button style={style} onClick={() => this._switchNameHandler("Saitama Rank SSR OnePunchMan")}>Switch Name</button>
                 <p>This is alpha Production.</p>
                 <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
