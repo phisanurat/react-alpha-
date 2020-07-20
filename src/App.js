@@ -8,6 +8,7 @@ class App extends Component {
             {name: "Saitama", age: 27},
             {name: "genos", age: 24}
         ],
+        showPersons: false
     }
     _switchNameHandler = (newName) => {
         console.log('Clicked :)');
@@ -28,6 +29,11 @@ class App extends Component {
         })
     }
 
+    _togglePersonHandler = () => {
+        const doseShow = this.state.showPersons
+        this.setState({showPersons: !doseShow})
+    }
+
 
     render() {
         const style = {
@@ -37,21 +43,35 @@ class App extends Component {
             padding: '8px',
             cursor: 'pointer'
         }
+        let persons = null
+        if (this.state.showPersons) {
+            persons = (
+                <div>
+                    {this.state.persons.map(person => {
+                        return <Person name={person.name} age={person.age}/>
+                    })}
+
+                    {/*<Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>*/}
+                    {/*<Person name={this.state.persons[1].name} age={this.state.persons[1].age}*/}
+                    {/*        click={this._switchNameHandler.bind(this, "Saitama Rank B")}*/}
+                    {/*        changed={this._nameChangedHandler}>Something.</Person>*/}
+                </div>
+            )
+        }
         return (
             <div className="App">
                 <h1>Hello i'm React.</h1>
-                <button style={style} onClick={this._switchNameHandler.bind(this, "Saitama Rank SSR OnePunchMan")}>Switch Name
+                <button style={style}
+                        onClick={this._togglePersonHandler}>Toggle Person
                 </button>
                 {' '}
-                <button style={style} onClick={() => this._switchNameHandler("Saitama Rank SSR OnePunchMan")}>Switch Name</button>
+                <button style={style} onClick={() => this._switchNameHandler("Saitama Rank SSR OnePunchMan")}>Switch
+                    Name
+                </button>
                 <p>This is alpha Production.</p>
-                <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
-                <Person name={this.state.persons[1].name} age={this.state.persons[1].age}
-                        click={this._switchNameHandler.bind(this, "Saitama Rank B")}
-                        changed={this._nameChangedHandler}>Something.</Person>
+                {persons}
             </div>
         );
-
     }
 
 
