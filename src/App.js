@@ -100,7 +100,7 @@ class App extends Component {
         return (
             <div className="App">
                 <h1>Hello i'm React.</h1>
-                <hr style={{width: '80%'}}/>
+                <hr style={{width: '60%'}}/>
                 <button style={style}
                         onClick={this._togglePersonHandler}>Toggle Person
                 </button>
@@ -110,7 +110,7 @@ class App extends Component {
                 </button>
                 <p className={classes.join(' ')}>This is alpha Production.</p>
                 {persons}
-                <hr style={{width: '80%'}}/>
+                <hr style={{width: '60%'}}/>
                 <input type="text" onChange={this._inputChangedHandler}
                        value={this.state.userInput}
                 />
