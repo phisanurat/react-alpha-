@@ -8,7 +8,8 @@ class App extends Component {
     state = {
         persons: [
             {id: 'id01', name: "Saitama", age: 27},
-            {id: 'id02', name: "genos", age: 24}
+            {id: 'id02', name: "Genos", age: 24},
+            {id: 'id03', name: "Sonic", age: 27}
         ],
         showPersons: false,
         userInput: ''
@@ -87,6 +88,15 @@ class App extends Component {
                 </div>
             )
         }
+
+        const classes = []
+        if (this.state.persons.length <= 2) {
+            classes.push('red')
+        }
+        if (this.state.persons.length <= 1) {
+            classes.push('bold')
+        }
+
         return (
             <div className="App">
                 <h1>Hello i'm React.</h1>
@@ -98,7 +108,7 @@ class App extends Component {
                 <button style={style} onClick={() => this._switchNameHandler("Saitama Rank SSR OnePunchMan")}>Switch
                     Name
                 </button>
-                <p>This is alpha Production.</p>
+                <p className={classes.join(' ')}>This is alpha Production.</p>
                 {persons}
                 <hr style={{width: '80%'}}/>
                 <input type="text" onChange={this._inputChangedHandler}
