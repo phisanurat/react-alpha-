@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
 import Person from "./Person/Person";
+import Validation from './Validation/Validation'
+import Char from './Char/Char'
 
 class App extends Component {
     state = {
@@ -8,7 +10,8 @@ class App extends Component {
             {id: 'id01', name: "Saitama", age: 27},
             {id: 'id02', name: "genos", age: 24}
         ],
-        showPersons: false
+        showPersons: false,
+        userInput: ''
     }
     _switchNameHandler = (newName) => {
         console.log('Clicked :)');
@@ -44,6 +47,15 @@ class App extends Component {
         const doseShow = this.state.showPersons
         this.setState({showPersons: !doseShow})
     }
+    _inputChangedHandler = (event) => {
+        this.setState({userInput: event.target.value})
+    }
+    _deleteCharHandler = (index) => {
+        const text = this.state.userInput.split('')
+        text.splice(index, 1)
+        const updatedText = text.join('')
+        this.setState({userInput: updatedText})
+    }
 
 
     render() {
@@ -54,6 +66,13 @@ class App extends Component {
             padding: '8px',
             cursor: 'pointer'
         }
+        const charList = this.state.userInput.split('').map((ch, index) => {
+            return <Char charecter={ch}
+                         key={index}
+                         clicked={() => this._deleteCharHandler(index)}
+            />
+        })
+
         let persons = null
         if (this.state.showPersons) {
             persons = (
@@ -71,6 +90,7 @@ class App extends Component {
         return (
             <div className="App">
                 <h1>Hello i'm React.</h1>
+                <hr style={{width: '80%'}}/>
                 <button style={style}
                         onClick={this._togglePersonHandler}>Toggle Person
                 </button>
@@ -80,6 +100,13 @@ class App extends Component {
                 </button>
                 <p>This is alpha Production.</p>
                 {persons}
+                <hr style={{width: '80%'}}/>
+                <input type="text" onChange={this._inputChangedHandler}
+                       value={this.state.userInput}
+                />
+                <p>{this.state.userInput}</p>
+                <Validation inputLength={this.state.userInput.length}/>
+                {charList}
             </div>
         );
     }
