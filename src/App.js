@@ -3,6 +3,19 @@ import './App.css';
 import Person from "./Person/Person";
 import Validation from './Validation/Validation'
 import Char from './Char/Char'
+import styled from "styled-components";
+
+const StyledButton = styled.button`
+    background-color: ${props => props.alt ? 'sliver' : 'white'};
+    font: inherit;
+    border: 1x solid blue;
+    padding: 8px;
+    cursor: pointer;
+    &:hover {
+        background-color: ${props => props.alt ? 'gray' : 'black'};
+        color: ${props => props.alt ? 'black' : 'white'};
+    }
+`;
 
 class App extends Component {
     state = {
@@ -65,7 +78,11 @@ class App extends Component {
             font: 'inherit',
             border: '1x solid blue',
             padding: '8px',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            ':hover': {
+                backgroundColor: 'lightgreen',
+                color: 'black'
+            }
         }
         const charList = this.state.userInput.split('').map((ch, index) => {
             return <Char charecter={ch}
@@ -87,6 +104,11 @@ class App extends Component {
                     })}
                 </div>
             )
+            // style.backgroundColor = 'red'
+            // style[':hover'] = {
+            //     backgroundColor: 'salmon',
+            //     color: 'black'
+            // }
         }
 
         const classes = []
@@ -100,17 +122,21 @@ class App extends Component {
         return (
             <div className="App">
                 <h1>Hello i'm React.</h1>
-                <hr style={{width: '60%'}}/>
-                <button style={style}
-                        onClick={this._togglePersonHandler}>Toggle Person
-                </button>
+                <hr style={{width: '40%'}}/>
+                <StyledButton
+                    alt={this.state.showPersons}
+                    onClick={this._togglePersonHandler}>Toggle Person
+                </StyledButton>
                 {' '}
-                <button style={style} onClick={() => this._switchNameHandler("Saitama Rank SSR OnePunchMan")}>Switch
+                <StyledButton  onClick={() => this._switchNameHandler("Saitama Rank SSR OnePunchMan")}>Switch
                     Name
-                </button>
+                </StyledButton>
+                {/*<button style={style} onClick={() => this._switchNameHandler("Saitama Rank SSR OnePunchMan")}>Switch*/}
+                {/*    Name*/}
+                {/*</button>*/}
                 <p className={classes.join(' ')}>This is alpha Production.</p>
                 {persons}
-                <hr style={{width: '60%'}}/>
+                <hr style={{width: '40%'}}/>
                 <input type="text" onChange={this._inputChangedHandler}
                        value={this.state.userInput}
                 />
