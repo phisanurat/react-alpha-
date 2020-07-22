@@ -1,5 +1,5 @@
 import React from "react";
-// import './Person.css'
+import './Person.css'
 import styled from "styled-components";
 
 
@@ -23,7 +23,6 @@ const person = (props) => {
         }
     }
 
-
     return (
         // <div className="Person" style={style}>
         <StyleDiv>
@@ -36,8 +35,8 @@ const person = (props) => {
                 </p>
             </p>
             <input type="text" onChange={props.changed} value={props.name}/>
-            {/*</div>*/}
         </StyleDiv>
+        //</div>
     );
 }
 

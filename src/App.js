@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
+import './App.css'
 import Person from "./Person/Person";
 import Validation from './Validation/Validation'
 import Char from './Char/Char'
@@ -8,7 +8,7 @@ import styled from "styled-components";
 const StyledButton = styled.button`
     background-color: ${props => props.alt ? 'sliver' : 'white'};
     font: inherit;
-    border: 1x solid blue;
+    border: 1px solid black;
     padding: 8px;
     cursor: pointer;
     &:hover {
@@ -128,12 +128,9 @@ class App extends Component {
                     onClick={this._togglePersonHandler}>Toggle Person
                 </StyledButton>
                 {' '}
-                <StyledButton  onClick={() => this._switchNameHandler("Saitama Rank SSR OnePunchMan")}>Switch
+                <StyledButton onClick={() => this._switchNameHandler("Saitama Rank SSR OnePunchMan")}>Switch
                     Name
                 </StyledButton>
-                {/*<button style={style} onClick={() => this._switchNameHandler("Saitama Rank SSR OnePunchMan")}>Switch*/}
-                {/*    Name*/}
-                {/*</button>*/}
                 <p className={classes.join(' ')}>This is alpha Production.</p>
                 {persons}
                 <hr style={{width: '40%'}}/>
@@ -146,8 +143,6 @@ class App extends Component {
             </div>
         );
     }
-
-
 }
 
 export default App;

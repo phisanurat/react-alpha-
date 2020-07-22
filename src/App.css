@@ -1,6 +1,7 @@
 
 .red {
     color: red;
+
 }
 
 .bold {
@@ -45,3 +46,17 @@
         transform: rotate(360deg);
     }
 }
+
+.ButtonRed {
+    background-color: green;
+    font: inherit;
+    border: 1px solid blue;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.Button:hover {
+    background-color: black;
+    color: white;
+}
+
