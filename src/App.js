@@ -118,7 +118,6 @@ class App extends Component {
         if (this.state.persons.length <= 1) {
             classes.push('bold')
         }
-
         return (
             <div className="App">
                 <h1>Hello i'm React.</h1>
