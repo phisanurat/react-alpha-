@@ -18,7 +18,7 @@ const person = (props) => {
     }
 `
     const style = {
-        '@media(min-width: 500px)': {
+        '@media(minWidth: 500px)': {
             width: '450px'
         }
     }
@@ -35,8 +35,8 @@ const person = (props) => {
                 </p>
             </p>
             <input type="text" onChange={props.changed} value={props.name}/>
+
         </StyleDiv>
-        //</div>
     );
 }
 
