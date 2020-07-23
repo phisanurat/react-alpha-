@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import './App.css'
-import Person from "./Person/Person";
-import Validation from './Validation/Validation'
-import Char from './Char/Char'
+import Person from "./Component/Persons/Person/Person";
+import Validation from './Component/Validation/Validation'
+import Char from './Component/Char/Char'
 import styled from "styled-components";
 
 const StyledButton = styled.button`
@@ -120,7 +120,7 @@ class App extends Component {
         }
         return (
             <div className="App">
-                <h1>Hello i'm React.</h1>
+                <h1>Hello i'm React :)</h1>
                 <hr style={{width: '40%'}}/>
                 <StyledButton
                     alt={this.state.showPersons}

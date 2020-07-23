@@ -30,7 +30,7 @@ const person = (props) => {
                 onClick={props.click}> i'm
                 {props.name} and i'm
                 {props.age},{props.children}
-                <p style={style}>
+                <p>
                     #Touch to Delete..
                 </p>
             </p>
